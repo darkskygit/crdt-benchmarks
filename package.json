@@ -10,12 +10,13 @@
   },
   "workspaces": [
     "benchmarks/yjs",
+    "benchmarks/yocto",
     "benchmarks/ywasm",
     "benchmarks/automerge-wasm"
   ],
   "scripts": {
     "start": "npm run start -ws",
-    "table": "node bin/render-table.js benchmarks/results.json 6000 yjs ywasm automerge-wasm",
+    "table": "node bin/render-table.js benchmarks/results.json 6000 yjs ywasm automerge-wasm yocto-node",
     "lint": "standard && tsc"
   },
   "standard": {

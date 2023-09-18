@@ -30,6 +30,9 @@ export const runBenchmarkB3 = async (crdtFactory, filter) => {
       for (let i = 0; i < docs.length; i++) {
         changeDoc(docs[i], i)
       }
+      for (let i = 0; i < docs.length; i++) {
+        updates.push(docs[i].getEncodedState())
+      }
       t.assert(updates.length >= sqrtN)
       // sync client 0 for reference
       mux(() => {

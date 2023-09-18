@@ -175,6 +175,13 @@ export class AbstractCrdt {
   }
 
   /**
+   * @param {AbstractCrdt} doc
+  **/
+  syncDocument (doc) {
+    error.methodUnimplemented()
+  }
+
+  /**
    * Insert several items into the internal shared array implementation.
    *
    * @param {number} index

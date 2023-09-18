@@ -29,6 +29,7 @@ export const runBenchmarksB1 = async (crdtFactory, filter) => {
           changeFunction(doc1, inputData[i], i)
         }
       })
+      doc1Updates.push(doc1.getEncodedState())
       doc1Updates.forEach(update => {
         doc2.applyUpdate(update)
       })

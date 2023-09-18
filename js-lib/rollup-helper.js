@@ -31,7 +31,8 @@ export default [{
       mainFields: ['module', 'browser', 'main']
     }),
     commonjs()
-  ]
+  ],
+  external: ['@y-octo/node']
 }, {
   input: './run.js',
   output: {
@@ -45,7 +46,7 @@ export default [{
     }),
     commonjs()
   ],
-  external: ['isomorphic.js']
+  external: ['isomorphic.js','@y-octo/node']
 },
 {
   input: './bundle.js',
@@ -62,5 +63,6 @@ export default [{
     builtins(),
     globals(),
     terserPlugin
-  ]
+  ],
+  external: ['@y-octo/node']
 }]

@@ -29,11 +29,14 @@ export const runBenchmarkB2 = async (crdtFactory, filter) => {
       benchmarkTime(crdtFactory.getName(), `${id} (time)`, () => {
         doc1.transact(() => {
           changeDoc1(doc1)
+          doc1.syncDocument?.(doc2)
         })
         doc2.transact(() => {
           changeDoc2(doc2)
+          doc2.syncDocument?.(doc1)
         })
       })
+      doc1.syncDocument?.(doc2)
       check(doc1, doc2)
       const avgUpdateSize = math.round(updatesSize / 2)
       setBenchmarkResult(crdtFactory.getName(), `${id} (updateSize)`, `${avgUpdateSize} bytes`)
